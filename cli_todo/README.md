@@ -1,6 +1,6 @@
 # Simple CLI Todo List
 
-This is a very basic command-line tool for managing a todo list.
+This is a command-line tool for managing a todo list. It now includes the ability to mark tasks as complete and view the list with completed tasks separately.
 
 ## Usage
 
@@ -10,8 +10,38 @@ To add tasks, run the script with the task(s) as arguments:
 python main.py task1 task2 task3
 ```
 
-This will print the list of tasks to the console.
+To mark a task as complete, use the `-c` flag followed by the task:
+
+```bash
+python main.py -c task1
+```
+
+To view all tasks, including completed ones, run the script:
+
+```bash
+python main.py
+```
+
+To view only completed tasks, run the script:
+
+```bash
+python main.py --completed
+```
 
 ## Persistence
 
-Now the todo list is saved to a file named `todo.txt`.  Each task is added to this file when you run the script.  To view the list, run the script again.  To clear the list, delete the `todo.txt` file.
+The todo list is saved to a file named `todo.txt`. Each task is added to this file when you run the script. To view the list, run the script again. To clear the list, delete the `todo.txt` file.
+
+## Features
+
+*   **Task Addition:** Add new tasks to the list.
+*   **Task Completion:** Mark tasks as complete.
+*   **Task Listing:** View all tasks, or only completed tasks.
+
+## Error Handling
+
+The script now handles potential errors when writing to the `todo.txt` file and provides informative error messages.
+
+## Testing
+
+Comprehensive unit tests are included to ensure the functionality of the script.
