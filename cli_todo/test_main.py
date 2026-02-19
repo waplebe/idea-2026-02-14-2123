@@ -47,5 +47,21 @@ class TestMain(unittest.TestCase):
             tasks = f.readlines()
         self.assertEqual(len(tasks), 0)
 
-if __name__ == '__main__':
-    unittest.main()
+    def test_add_and_complete_task(self):
+        main.main("task1", "-c", "task1")
+        with open("todo.txt", "r") as f:
+            tasks = f.readlines()
+        self.assertEqual(len(tasks), 0)
+
+    def test_add_multiple_tasks_and_complete_some(self):
+        main.main("task1", "task2", "-c", "task1")
+        with open("todo.txt", "r") as f:
+            tasks = f.readlines()
+        self.assertEqual(len(tasks), 1)
+        self.assertEqual(tasks[0].strip(), "task2")
+
+    def test_clear_list(self):
+        main.main("-c", "task1", "-c", "task2")
+        with open("todo.txt", "r") as f:
+            tasks = f.readlines()
+        self.assertEqual(len(tasks), 0)

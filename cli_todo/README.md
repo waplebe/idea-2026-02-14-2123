@@ -45,3 +45,24 @@ The script now handles potential errors when writing to the `todo.txt` file and 
 ## Testing
 
 Comprehensive unit tests are included to ensure the functionality of the script.
+
+## New Features
+
+*   **Task Deletion:**  Added the ability to delete tasks from the list using the `-d` flag followed by the task.
+*   **List Clearing:** Added a command to clear the entire todo list by deleting the `todo.txt` file.
+*   **Improved Error Handling:** Enhanced error handling for file operations, providing more specific error messages.
+*   **Task Duplication Prevention:** Prevents adding duplicate tasks to the list.
+
+## Improvements
+
+*   **Comprehensive Testing:** Added new unit tests to cover the new features and edge cases.
+*   **Clearer Documentation:** Updated the README to reflect the new features and improvements.
+
+## Example Usage
+
+*   **Add tasks:** `python main.py task1 task2`
+*   **Mark task as complete:** `python main.py -c task1`
+*   **View completed tasks:** `python main.py --completed`
+*   **View all tasks:** `python main.py`
+*   **Delete a task:** `python main.py -d task1`
+*   **Clear the list:** `python main.py -c task1 -c task2 -d task1 -d task2` (or delete todo.txt)
