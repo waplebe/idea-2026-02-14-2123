@@ -6,6 +6,7 @@ def main():
     parser.add_argument("task", nargs='*', help="The task to add.")
     parser.add_argument("-c", "--complete", nargs='?', help="Mark a task as complete.")
     parser.add_argument("--completed", action="store_true", help="View only completed tasks.")
+    parser.add_argument("-d", "--delete", nargs='?', help="Delete a task.")
 
     args = parser.parse_args()
 
@@ -34,6 +35,11 @@ def main():
             completed_tasks.append(task)
         else:
             tasks.remove(task)
+
+    # Delete task if specified
+    if args.delete:
+        if args.delete in tasks:
+            tasks.remove(args.delete)
 
     # Print tasks
     if args.completed:

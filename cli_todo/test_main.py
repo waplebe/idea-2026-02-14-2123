@@ -65,3 +65,16 @@ class TestMain(unittest.TestCase):
         with open("todo.txt", "r") as f:
             tasks = f.readlines()
         self.assertEqual(len(tasks), 0)
+
+    def test_delete_task(self):
+        main.main("-d", "task1")
+        with open("todo.txt", "r") as f:
+            tasks = f.readlines()
+        self.assertEqual(len(tasks), 0)
+
+    def test_delete_nonexistent_task(self):
+        main.main("-d", "task1")
+        self.assertTrue(os.path.exists("todo.txt"))
+        with open("todo.txt", "r") as f:
+            tasks = f.readlines()
+        self.assertEqual(len(tasks), 0)
